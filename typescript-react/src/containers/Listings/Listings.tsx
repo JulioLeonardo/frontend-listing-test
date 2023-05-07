@@ -3,11 +3,17 @@ import ListingForm from '@components/ListingForm';
 
 import styles from './listings.module.scss';
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { Listing } from '@/types';
+
+const fetchListings = (): Promise<Listing[]> =>
+  axios.get('http://localhost:8080/listings').then((response) => response.data);
 
 const Listings = () => {
-  const { data, status } = useQuery(['listings'], () =>
-    fetch('http://localhost:8080/listings').then((res) => res.json()),
-  );
+  const { data, status } = useQuery({
+    queryKey: ['listings'],
+    queryFn: fetchListings,
+  });
 
   console.log({ data, status });
 
