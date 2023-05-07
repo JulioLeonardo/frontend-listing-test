@@ -27,7 +27,9 @@ const Listings = () => {
         </aside>
         <section className={styles['listings__section']}>
           <h2 className={styles['listings__sub-title']}>Listings</h2>
-          <ListingCard />
+          {data
+            ? data.map((listing) => <ListingCard listing={listing} />)
+            : null}
         </section>
       </div>
     </main>

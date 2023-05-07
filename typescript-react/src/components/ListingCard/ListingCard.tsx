@@ -1,9 +1,12 @@
 import styles from './listing-card.module.scss';
+import { Listing } from '@/types';
 
-const ListingCard = () => {
+const ListingCard = ({ listing }: { listing: Listing }) => {
   return (
     <article className={styles['listing-card']}>
-      <span className={styles['listing-card__price']}>320 000 &euro;</span>
+      <span className={styles['listing-card__price']}>
+        {listing.latest_price_eur}
+      </span>
       <ul className={styles['listing-card__properties']}>
         <li className={styles['listing-card__properties-item']}>Studio</li>
         <li className={styles['listing-card__properties-item']}>
