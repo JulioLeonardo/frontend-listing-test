@@ -1,9 +1,8 @@
-import { render } from '@testing-library/react';
-
 import ListingForm from '.';
+import { renderWithClient } from '@/testUtils';
 
 describe('<ListingForm />', () => {
   it('Should render the listing form component', () => {
-    render(<ListingForm />);
+    renderWithClient(<ListingForm />);
   });
 });

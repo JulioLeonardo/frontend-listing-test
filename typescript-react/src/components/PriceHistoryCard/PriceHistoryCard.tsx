@@ -21,7 +21,6 @@ const PriceHistoryCard = () => {
     queryFn: () => fetchListingPrices(listingId),
   });
 
-  console.log(data, status);
   return (
     <div className={styles['container']}>
       {data ? (

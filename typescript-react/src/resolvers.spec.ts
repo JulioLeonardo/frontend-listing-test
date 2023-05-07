@@ -1,6 +1,7 @@
 import {
   capitalizeFirstLetter,
   convertNumberToCurrency,
+  removeFalsyProperties,
   resolveAddressString,
   resolveDateString,
 } from '@/resolvers';
@@ -40,5 +41,22 @@ describe('resolveDateString', () => {
   it('should resolve date string', () => {
     const date = '2022-11-17';
     expect(resolveDateString(date)).toBe('17.11.2022');
+  });
+});
+
+describe('removeFalsyProperties', () => {
+  it('should remove falsy properties', () => {
+    const object = {
+      name: '',
+      latest_price_eur: '',
+      surface_area_m2: '',
+      bedrooms_count: '',
+      rooms_count: '',
+      description: '',
+      building_type: 'STUDIO',
+      contact_phone_number: '',
+    };
+    const newObject = removeFalsyProperties(object);
+    expect(newObject).toEqual({ building_type: 'STUDIO' });
   });
 });

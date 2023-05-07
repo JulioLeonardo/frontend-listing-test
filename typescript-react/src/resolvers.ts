@@ -28,3 +28,13 @@ export const resolveDateString = (date: string) => {
     day: 'numeric',
   });
 };
+
+export const removeFalsyProperties = <T extends {}>(object: T) => {
+  const newObject: T = {} as T;
+  Object.keys(object).forEach((key) => {
+    if (object[key as keyof T]) {
+      newObject[key as keyof T] = object[key as keyof T];
+    }
+  });
+  return newObject;
+};

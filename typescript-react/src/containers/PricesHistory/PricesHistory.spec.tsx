@@ -1,9 +1,8 @@
-import { render } from '@testing-library/react';
-
 import PricesHistory from './PricesHistory';
+import { renderWithClient } from '@/testUtils';
 
 describe('<PricesHistory /> test suite', () => {
   it('Should render the <PricesHistory /> component', () => {
-    render(<PricesHistory />);
+    renderWithClient(<PricesHistory />);
   });
 });
