@@ -42,10 +42,13 @@ const ListingCard = ({ listing }: { listing: Listing }) => {
       </section>
       <div className={styles['listing-card__footer']}>
         <p className={styles['listing-card__reference']}>
-          Ref: {listing.ref ? listing.ref : '123456'} <br />
+          Ref: {listing.id} <br />
           Last update: {resolveDateString(listing.updated_date)}
         </p>
-        <a href="/" className={styles['listing-card__link']}>
+        <a
+          href={`/${listing.id}/prices/`}
+          className={styles['listing-card__link']}
+        >
           See history &rarr;
         </a>
       </div>
