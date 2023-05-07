@@ -2,6 +2,8 @@ import styles from './price-history-card.module.scss';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { StatusHandler } from '@components/StatusHandler';
+import { convertNumberToCurrency, resolveDateString } from '@/resolvers';
 
 const fetchListingPrices = (
   listingId?: string,
@@ -22,18 +24,25 @@ const PriceHistoryCard = () => {
   console.log(data, status);
   return (
     <div className={styles['container']}>
-      <table className={styles['price-card']}>
-        <tbody>
-          <tr className={styles['price-card__header']}>
-            <th scope="col">Date</th>
-            <th scope="col">Price (eur)</th>
-          </tr>
-          <tr>
-            <td>01/01/2022</td>
-            <td>500 000</td>
-          </tr>
-        </tbody>
-      </table>
+      {data ? (
+        <table className={styles['price-card']}>
+          <tbody>
+            <tr className={styles['price-card__header']}>
+              <th scope="col">Date</th>
+              <th scope="col">Price (eur)</th>
+            </tr>
+            {data &&
+              data.map((price) => (
+                <tr key={price.created_date}>
+                  <td>{resolveDateString(price.created_date)}</td>
+                  <td>{convertNumberToCurrency(price.price_eur)}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      ) : (
+        <StatusHandler status={status} />
+      )}
     </div>
   );
 };
