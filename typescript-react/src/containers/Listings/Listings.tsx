@@ -5,6 +5,7 @@ import styles from './listings.module.scss';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { Listing } from '@/types';
+import { StatusHandler } from '@components/StatusHandler';
 
 const fetchListings = (): Promise<Listing[]> =>
   axios.get('http://localhost:8080/listings').then((response) => response.data);
@@ -14,8 +15,6 @@ const Listings = () => {
     queryKey: ['listings'],
     queryFn: fetchListings,
   });
-
-  console.log({ data, status });
 
   return (
     <main className={styles['listings']}>
@@ -27,9 +26,11 @@ const Listings = () => {
         </aside>
         <section className={styles['listings__section']}>
           <h2 className={styles['listings__sub-title']}>Listings</h2>
-          {data
-            ? data.map((listing) => <ListingCard listing={listing} />)
-            : null}
+          {data ? (
+            data.map((listing) => <ListingCard listing={listing} />)
+          ) : (
+            <StatusHandler status={status} />
+          )}
         </section>
       </div>
     </main>
