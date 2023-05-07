@@ -3,11 +3,12 @@ import Listings from '@containers/Listings/Listings';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import PricesHistory from '@containers/PricesHistory';
+import React from 'react';
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <>
+  <React.StrictMode>
     <Header />
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
@@ -17,7 +18,7 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
-  </>
+  </React.StrictMode>
 );
 
 export default App;

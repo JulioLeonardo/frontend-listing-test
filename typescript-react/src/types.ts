@@ -15,4 +15,10 @@ type Listing = {
   ref?: string; // No listing has ref property, so it is listed as optional, for future use
 };
 
-export type { Listing };
+type PostListing = Omit<Listing, 'id' | 'updated_date'> & {
+  name: string;
+  rooms_count: number;
+  contact_phone_number: string;
+};
+
+export type { Listing, PostListing };
