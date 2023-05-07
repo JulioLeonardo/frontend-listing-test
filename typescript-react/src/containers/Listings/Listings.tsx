@@ -27,7 +27,9 @@ const Listings = () => {
         <section className={styles['listings__section']}>
           <h2 className={styles['listings__sub-title']}>Listings</h2>
           {data ? (
-            data.map((listing) => <ListingCard listing={listing} />)
+            data.map((listing) => (
+              <ListingCard key={listing.id} listing={listing} />
+            ))
           ) : (
             <StatusHandler status={status} />
           )}
