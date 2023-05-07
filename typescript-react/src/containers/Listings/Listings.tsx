@@ -2,8 +2,15 @@ import ListingCard from '@components/ListingCard';
 import ListingForm from '@components/ListingForm';
 
 import styles from './listings.module.scss';
+import { useQuery } from '@tanstack/react-query';
 
 const Listings = () => {
+  const { data, status } = useQuery(['listings'], () =>
+    fetch('http://localhost:8080/listings').then((res) => res.json()),
+  );
+
+  console.log({ data, status });
+
   return (
     <main className={styles['listings']}>
       <h1 className={styles['listings__title']}>Main Listings page</h1>
