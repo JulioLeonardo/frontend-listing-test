@@ -1,4 +1,5 @@
 import Listings from './Listings';
+
 import { renderWithClient } from '@/testUtils';
 
 describe('<Listings /> test suite', () => {

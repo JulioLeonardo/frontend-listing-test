@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react';
-import { screen } from '@testing-library/dom';
-
 import { StatusHandler } from '@components/StatusHandler/StatusHandler';
+import { screen } from '@testing-library/dom';
+import { render } from '@testing-library/react';
 
 describe('<StatusHandler />', () => {
   const { getByText } = screen;

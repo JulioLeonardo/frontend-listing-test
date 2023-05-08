@@ -1,11 +1,12 @@
 import ListingCard from '@components/ListingCard';
 import ListingForm from '@components/ListingForm';
-
-import styles from './listings.module.scss';
+import { StatusHandler } from '@components/StatusHandler';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+
+import styles from './listings.module.scss';
+
 import { Listing } from '@/types';
-import { StatusHandler } from '@components/StatusHandler';
 
 const fetchListings = (): Promise<Listing[]> =>
   axios.get('http://localhost:8080/listings').then((response) => response.data);

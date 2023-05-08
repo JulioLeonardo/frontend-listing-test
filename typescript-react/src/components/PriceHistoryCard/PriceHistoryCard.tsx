@@ -1,8 +1,10 @@
-import styles from './price-history-card.module.scss';
+import { StatusHandler } from '@components/StatusHandler';
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import { StatusHandler } from '@components/StatusHandler';
+
+import styles from './price-history-card.module.scss';
+
 import { convertNumberToCurrency, resolveDateString } from '@/resolvers';
 
 const fetchListingPrices = (

@@ -1,11 +1,12 @@
 import styles from './listing-card.module.scss';
-import { Listing } from '@/types';
+
 import {
   capitalizeFirstLetter,
   convertNumberToCurrency,
   resolveAddressString,
   resolveDateString,
 } from '@/resolvers';
+import { Listing } from '@/types';
 
 const ListingCard = ({ listing }: { listing: Listing }) => {
   return (

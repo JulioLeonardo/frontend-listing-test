@@ -1,4 +1,5 @@
 import ListingForm from '.';
+
 import { renderWithClient } from '@/testUtils';
 
 describe('<ListingForm />', () => {

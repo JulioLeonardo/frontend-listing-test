@@ -1,9 +1,9 @@
+import React from 'react';
 import Header from '@components/Header/Header';
 import Listings from '@containers/Listings/Listings';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import PricesHistory from '@containers/PricesHistory';
-import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const queryClient = new QueryClient();
 
